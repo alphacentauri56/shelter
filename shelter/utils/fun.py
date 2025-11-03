@@ -104,4 +104,11 @@ class Colour:
         values: tuple/list/array of 3 floats (e.g., (r, g, b) or (h, s, v))
         space: string, one of "sRGB", "RGB", "HSV", etc.
         """
+        if space not in self._to_XYZ_methods and space!="XYZ":
+            raise ValueError(f"Unsupported colour space: {space}")
         
+        self.value = np.array(value)
+        self.space = space
+        
+        
+    
